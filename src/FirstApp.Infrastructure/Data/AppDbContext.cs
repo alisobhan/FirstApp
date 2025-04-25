@@ -10,7 +10,6 @@ public class AppDbContext(DbContextOptions<AppDbContext> options,
 
   public DbSet<Contributor> Contributors => Set<Contributor>();
 
-  
   protected override void OnModelCreating(ModelBuilder modelBuilder)
   {
     base.OnModelCreating(modelBuilder);

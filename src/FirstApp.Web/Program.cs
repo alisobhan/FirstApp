@@ -1,4 +1,5 @@
 ﻿using FirstApp.Web.Configurations;
+using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,8 +25,11 @@ builder.Services.AddFastEndpoints()
                 });
 
 builder.AddServiceDefaults();
+builder.Services.AddAuthentication();
 
 var app = builder.Build();
+
+app.MapIdentityApi<IdentityUser>();
 
 await app.UseAppMiddlewareAndSeedDatabase();
 

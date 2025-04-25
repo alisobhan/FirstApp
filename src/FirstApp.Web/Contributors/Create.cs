@@ -13,6 +13,7 @@ public class Create(IMediator _mediator)
 {
   public override void Configure()
   {
+    
     Post(CreateContributorRequest.Route);
     AllowAnonymous();
     Summary(s =>
