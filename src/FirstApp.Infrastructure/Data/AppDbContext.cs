@@ -1,13 +1,16 @@
 ﻿using FirstApp.Core.ContributorAggregate;
+using FirstApp.Infrastructure.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace FirstApp.Infrastructure.Data;
 public class AppDbContext(DbContextOptions<AppDbContext> options,
-  IDomainEventDispatcher? dispatcher) : DbContext(options)
+  IDomainEventDispatcher? dispatcher) : IdentityDbContext(options)
 {
   private readonly IDomainEventDispatcher? _dispatcher = dispatcher;
 
   public DbSet<Contributor> Contributors => Set<Contributor>();
 
+  
   protected override void OnModelCreating(ModelBuilder modelBuilder)
   {
     base.OnModelCreating(modelBuilder);
