@@ -1,0 +1,255 @@
+2025-04-25 13:42:25.165 +03:30 [INF] Executed DbCommand (112ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+CREATE DATABASE [FirstAppDb];
+2025-04-25 13:42:25.216 +03:30 [INF] Executed DbCommand (41ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [FirstAppDb] SET READ_COMMITTED_SNAPSHOT ON;
+END;
+2025-04-25 13:42:25.225 +03:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-04-25 13:42:25.226 +03:30 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-04-25 13:42:25.239 +03:30 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_getapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session', @LockMode = 'Exclusive';
+SELECT @result
+2025-04-25 13:42:25.265 +03:30 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF OBJECT_ID(N'[__EFMigrationsHistory]') IS NULL
+BEGIN
+    CREATE TABLE [__EFMigrationsHistory] (
+        [MigrationId] nvarchar(150) NOT NULL,
+        [ProductVersion] nvarchar(32) NOT NULL,
+        CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+    );
+END;
+2025-04-25 13:42:25.270 +03:30 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-04-25 13:42:25.271 +03:30 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-04-25 13:42:25.282 +03:30 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-04-25 13:42:25.287 +03:30 [INF] Applying migration '20231218143922_PhoneNumber'.
+2025-04-25 13:42:25.292 +03:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Contributors] (
+    [Id] INTEGER NOT NULL,
+    [Name] TEXT NOT NULL,
+    [Status] INTEGER NOT NULL,
+    [PhoneNumber_CountryCode] TEXT NULL,
+    [PhoneNumber_Number] TEXT NULL,
+    [PhoneNumber_Extension] TEXT NULL,
+    CONSTRAINT [PK_Contributors] PRIMARY KEY ([Id])
+);
+2025-04-25 13:42:25.296 +03:30 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20231218143922_PhoneNumber', N'9.0.0');
+2025-04-25 13:42:25.297 +03:30 [INF] Applying migration '20250425101214_Init'.
+2025-04-25 13:42:25.304 +03:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_releaseapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session';
+SELECT @result
+2025-04-25 13:43:54.594 +03:30 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-04-25 13:43:54.611 +03:30 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-04-25 13:43:54.618 +03:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-04-25 13:43:59.321 +03:30 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-04-25 13:43:59.338 +03:30 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-04-25 13:43:59.346 +03:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-04-25 13:44:45.791 +03:30 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-04-25 13:44:45.803 +03:30 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-04-25 13:44:45.810 +03:30 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_getapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session', @LockMode = 'Exclusive';
+SELECT @result
+2025-04-25 13:44:45.832 +03:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF OBJECT_ID(N'[__EFMigrationsHistory]') IS NULL
+BEGIN
+    CREATE TABLE [__EFMigrationsHistory] (
+        [MigrationId] nvarchar(150) NOT NULL,
+        [ProductVersion] nvarchar(32) NOT NULL,
+        CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+    );
+END;
+2025-04-25 13:44:45.835 +03:30 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-04-25 13:44:45.836 +03:30 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-04-25 13:44:45.839 +03:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-04-25 13:44:45.844 +03:30 [INF] Applying migration '20250425101410_Init'.
+2025-04-25 13:44:45.849 +03:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Contributors] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(100) NOT NULL,
+    [Status] int NOT NULL,
+    [PhoneNumber_CountryCode] nvarchar(max) NULL,
+    [PhoneNumber_Number] nvarchar(max) NULL,
+    [PhoneNumber_Extension] nvarchar(max) NULL,
+    CONSTRAINT [PK_Contributors] PRIMARY KEY ([Id])
+);
+2025-04-25 13:44:45.850 +03:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20250425101410_Init', N'9.0.0');
+2025-04-25 13:44:45.852 +03:30 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_releaseapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session';
+SELECT @result
+2025-04-25 13:45:56.158 +03:30 [INF] Registered 5 endpoints in 256 milliseconds.
+2025-04-25 13:45:56.686 +03:30 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-04-25 13:45:56.703 +03:30 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2025-04-25 13:45:56.840 +03:30 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Contributors] AS [c]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-25 13:45:56.925 +03:30 [INF] Executed DbCommand (13ms) [Parameters=[@p0='?' (Size = 100), @p1='?' (DbType = Int32), @p2='?' (Size = 100), @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [Contributors] USING (
+VALUES (@p0, @p1, 0),
+(@p2, @p3, 1)) AS i ([Name], [Status], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([Name], [Status])
+VALUES (i.[Name], i.[Status])
+OUTPUT INSERTED.[Id], i._Position;
+2025-04-25 13:45:57.057 +03:30 [INF] Now listening on: https://localhost:57679
+2025-04-25 13:45:57.060 +03:30 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2025-04-25 13:45:57.098 +03:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-25 13:45:57.099 +03:30 [INF] Hosting environment: Development
+2025-04-25 13:45:57.099 +03:30 [INF] Content root path: D:\Programming\Ardalis\FirstApp\src\FirstApp.Web
+2025-04-25 13:46:26.438 +03:30 [INF] Request starting HTTP/1.1 GET https://localhost:57679/Contributors - null null
+2025-04-25 13:46:26.458 +03:30 [INF] Executing endpoint 'HTTP: GET /Contributors'
+2025-04-25 13:46:26.473 +03:30 [INF] Handling ListContributorsQuery
+2025-04-25 13:46:26.474 +03:30 [INF] Property Skip : null
+2025-04-25 13:46:26.474 +03:30 [INF] Property Take : null
+2025-04-25 13:46:26.573 +03:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT Id, Name, PhoneNumber_Number AS PhoneNumber FROM Contributors
+2025-04-25 13:46:26.577 +03:30 [INF] Handled ListContributorsQuery with Ardalis.Result.Result`1[System.Collections.Generic.IEnumerable`1[FirstApp.UseCases.Contributors.ContributorDTO]] in 102 ms
+2025-04-25 13:46:26.588 +03:30 [INF] Executed endpoint 'HTTP: GET /Contributors'
+2025-04-25 13:46:26.593 +03:30 [INF] Request finished HTTP/1.1 GET https://localhost:57679/Contributors - 200 null application/json; charset=utf-8 160.7797ms
+2025-04-25 13:47:29.456 +03:30 [INF] Request starting HTTP/1.1 POST https://localhost:57679/Contributors - application/json 89
+2025-04-25 13:47:29.457 +03:30 [INF] Executing endpoint 'HTTP: POST /Contributors'
+2025-04-25 13:47:29.475 +03:30 [INF] Handling CreateContributorCommand
+2025-04-25 13:47:29.476 +03:30 [INF] Property Name : John Doe 2
+2025-04-25 13:47:29.477 +03:30 [INF] Property PhoneNumber : 1234567890
+2025-04-25 13:47:29.524 +03:30 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (Size = 100), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Contributors] ([Name], [Status], [PhoneNumber_CountryCode], [PhoneNumber_Extension], [PhoneNumber_Number])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-04-25 13:47:29.526 +03:30 [INF] Handled CreateContributorCommand with Ardalis.Result.Result`1[System.Int32] in 49 ms
+2025-04-25 13:47:29.528 +03:30 [INF] Executed endpoint 'HTTP: POST /Contributors'
+2025-04-25 13:47:29.529 +03:30 [INF] Request finished HTTP/1.1 POST https://localhost:57679/Contributors - 200 null application/json; charset=utf-8 73.2903ms
+2025-04-25 13:48:04.960 +03:30 [INF] Request starting HTTP/1.1 PUT https://localhost:57679/Contributors/1 - application/json 38
+2025-04-25 13:48:04.962 +03:30 [INF] Executing endpoint 'HTTP: PUT /Contributors/{ContributorId:int}'
+2025-04-25 13:48:04.970 +03:30 [INF] Handling UpdateContributorCommand
+2025-04-25 13:48:04.971 +03:30 [INF] Property ContributorId : 1
+2025-04-25 13:48:04.972 +03:30 [INF] Property NewName : ardalis2
+2025-04-25 13:48:05.019 +03:30 [INF] Executed DbCommand (9ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Name], [c].[Status], [c].[PhoneNumber_CountryCode], [c].[PhoneNumber_Extension], [c].[PhoneNumber_Number]
+FROM [Contributors] AS [c]
+WHERE [c].[Id] = @__p_0
+2025-04-25 13:48:05.029 +03:30 [INF] Executed DbCommand (1ms) [Parameters=[@p2='?' (DbType = Int32), @p0='?' (Size = 100), @p1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Contributors] SET [Name] = @p0, [Status] = @p1
+OUTPUT 1
+WHERE [Id] = @p2;
+2025-04-25 13:48:05.031 +03:30 [INF] Handled UpdateContributorCommand with Ardalis.Result.Result`1[FirstApp.UseCases.Contributors.ContributorDTO] in 59 ms
+2025-04-25 13:48:05.033 +03:30 [INF] Handling GetContributorQuery
+2025-04-25 13:48:05.033 +03:30 [INF] Property ContributorId : 1
+2025-04-25 13:48:05.047 +03:30 [INF] Executed DbCommand (1ms) [Parameters=[@__contributorId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Name], [c].[Status], [c].[PhoneNumber_CountryCode], [c].[PhoneNumber_Extension], [c].[PhoneNumber_Number]
+FROM [Contributors] AS [c]
+WHERE [c].[Id] = @__contributorId_0
+2025-04-25 13:48:05.048 +03:30 [INF] Handled GetContributorQuery with Ardalis.Result.Result`1[FirstApp.UseCases.Contributors.ContributorDTO] in 14 ms
+2025-04-25 13:48:05.050 +03:30 [INF] Executed endpoint 'HTTP: PUT /Contributors/{ContributorId:int}'
+2025-04-25 13:48:05.050 +03:30 [INF] Request finished HTTP/1.1 PUT https://localhost:57679/Contributors/1 - 200 null application/json; charset=utf-8 90.1501ms
+2025-04-25 13:48:37.485 +03:30 [INF] Request starting HTTP/1.1 DELETE https://localhost:57679/Contributors/1 - null null
+2025-04-25 13:48:37.487 +03:30 [INF] Executing endpoint 'HTTP: DELETE /Contributors/{ContributorId:int}'
+2025-04-25 13:48:37.490 +03:30 [INF] Handling DeleteContributorCommand
+2025-04-25 13:48:37.490 +03:30 [INF] Property ContributorId : 1
+2025-04-25 13:48:37.492 +03:30 [INF] Deleting Contributor 1
+2025-04-25 13:48:37.495 +03:30 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Name], [c].[Status], [c].[PhoneNumber_CountryCode], [c].[PhoneNumber_Extension], [c].[PhoneNumber_Number]
+FROM [Contributors] AS [c]
+WHERE [c].[Id] = @__p_0
+2025-04-25 13:48:37.500 +03:30 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+DELETE FROM [Contributors]
+OUTPUT 1
+WHERE [Id] = @p0;
+2025-04-25 13:48:37.505 +03:30 [INF] Handling Contributed Deleted event for 1
+2025-04-25 13:48:37.519 +03:30 [WRN] Sending email to to@test.com from from@test.com with subject Contributor Deleted using FirstApp.Infrastructure.Email.MimeKitEmailSender.
+2025-04-25 13:49:35.573 +03:30 [INF] Executed endpoint 'HTTP: DELETE /Contributors/{ContributorId:int}'
+2025-04-25 13:49:35.585 +03:30 [ERR] An unhandled exception has occurred while executing the request.
+System.Net.Sockets.SocketException (10061): No connection could be made because the target machine actively refused it.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.TaskToAsyncResult.End(IAsyncResult asyncResult)
+   at MailKit.Net.SocketUtils.SocketConnectState.OnEndConnect(IAsyncResult ar)
+--- End of stack trace from previous location ---
+   at MailKit.Net.SocketUtils.ConnectAsync(String host, Int32 port, IPEndPoint localEndPoint, CancellationToken cancellationToken)
+   at MailKit.Net.SocketUtils.ConnectAsync(String host, Int32 port, IPEndPoint localEndPoint, Int32 timeout, CancellationToken cancellationToken)
+   at MailKit.MailService.ConnectNetworkAsync(String host, Int32 port, CancellationToken cancellationToken)
+   at MailKit.Net.Smtp.SmtpClient.ConnectAsync(String host, Int32 port, SecureSocketOptions options, CancellationToken cancellationToken)
+   at FirstApp.Infrastructure.Email.MimeKitEmailSender.SendEmailAsync(String to, String from, String subject, String body) in D:\Programming\Ardalis\FirstApp\src\FirstApp.Infrastructure\Email\MimeKitEmailSender.cs:line 16
+   at FirstApp.Core.ContributorAggregate.Handlers.ContributorDeletedHandler.Handle(ContributorDeletedEvent domainEvent, CancellationToken cancellationToken) in D:\Programming\Ardalis\FirstApp\src\FirstApp.Core\ContributorAggregate\Handlers\ContributorDeletedHandler.cs:line 16
+   at MediatR.NotificationPublishers.ForeachAwaitPublisher.Publish(IEnumerable`1 handlerExecutors, INotification notification, CancellationToken cancellationToken)
+   at FirstApp.Core.Services.DeleteContributorService.DeleteContributor(Int32 contributorId) in D:\Programming\Ardalis\FirstApp\src\FirstApp.Core\Services\DeleteContributorService.cs:line 27
+   at FirstApp.UseCases.Contributors.Delete.DeleteContributorHandler.Handle(DeleteContributorCommand request, CancellationToken cancellationToken) in D:\Programming\Ardalis\FirstApp\src\FirstApp.UseCases\Contributors\Delete\DeleteContributorHandler.cs:line 11
+   at Ardalis.SharedKernel.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at FirstApp.Web.Contributors.Delete.HandleAsync(DeleteContributorRequest request, CancellationToken cancellationToken) in D:\Programming\Ardalis\FirstApp\src\FirstApp.Web\Contributors\Delete.cs:line 26
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Ardalis.ListStartupServices.ShowAllServicesMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-04-25 13:49:35.595 +03:30 [INF] Request finished HTTP/1.1 DELETE https://localhost:57679/Contributors/1 - 500 null text/plain; charset=utf-8 58110.0184ms
+2025-04-25 13:49:44.708 +03:30 [INF] Request starting HTTP/1.1 GET https://localhost:57679/Contributors - null null
+2025-04-25 13:49:44.710 +03:30 [INF] Executing endpoint 'HTTP: GET /Contributors'
+2025-04-25 13:49:44.710 +03:30 [INF] Handling ListContributorsQuery
+2025-04-25 13:49:44.711 +03:30 [INF] Property Skip : null
+2025-04-25 13:49:44.711 +03:30 [INF] Property Take : null
+2025-04-25 13:49:44.718 +03:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT Id, Name, PhoneNumber_Number AS PhoneNumber FROM Contributors
+2025-04-25 13:49:44.719 +03:30 [INF] Handled ListContributorsQuery with Ardalis.Result.Result`1[System.Collections.Generic.IEnumerable`1[FirstApp.UseCases.Contributors.ContributorDTO]] in 7 ms
+2025-04-25 13:49:44.720 +03:30 [INF] Executed endpoint 'HTTP: GET /Contributors'
+2025-04-25 13:49:44.721 +03:30 [INF] Request finished HTTP/1.1 GET https://localhost:57679/Contributors - 200 null application/json; charset=utf-8 12.4982ms

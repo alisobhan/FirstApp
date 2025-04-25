@@ -1,0 +1,44 @@
+2025-04-24 15:49:01.172 +03:30 [INF] Registered 5 endpoints in 1,625 milliseconds.
+2025-04-24 15:49:02.009 +03:30 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA journal_mode = 'wal';
+2025-04-24 15:49:02.065 +03:30 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Contributors" (
+    "Id" INTEGER NOT NULL CONSTRAINT "PK_Contributors" PRIMARY KEY AUTOINCREMENT,
+    "Name" TEXT NOT NULL,
+    "Status" INTEGER NOT NULL,
+    "PhoneNumber_CountryCode" TEXT NULL,
+    "PhoneNumber_Number" TEXT NULL,
+    "PhoneNumber_Extension" TEXT NULL
+);
+2025-04-24 15:49:02.162 +03:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2025-04-24 15:49:02.233 +03:30 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (Size = 7), @p1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Contributors" ("Name", "Status")
+VALUES (@p0, @p1)
+RETURNING "Id";
+2025-04-24 15:49:02.240 +03:30 [INF] Executed DbCommand (0ms) [Parameters=[@p0='?' (Size = 8), @p1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Contributors" ("Name", "Status")
+VALUES (@p0, @p1)
+RETURNING "Id";
+2025-04-24 15:49:02.403 +03:30 [INF] Now listening on: https://localhost:57679
+2025-04-24 15:49:02.406 +03:30 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2025-04-24 15:49:02.451 +03:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-24 15:49:02.451 +03:30 [INF] Hosting environment: Development
+2025-04-24 15:49:02.452 +03:30 [INF] Content root path: D:\Programming\Ardalis\FirstApp\src\FirstApp.Web
+2025-04-24 15:49:09.290 +03:30 [INF] Request starting HTTP/2 GET https://localhost:57679/ - null null
+2025-04-24 15:49:09.407 +03:30 [INF] Request finished HTTP/2 GET https://localhost:57679/ - 404 0 null 123.1624ms
+2025-04-24 15:49:09.411 +03:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:57679/, Response status code: 404
+2025-04-24 15:49:21.058 +03:30 [INF] Request starting HTTP/1.1 GET https://localhost:57679/Contributors/1 - null null
+2025-04-24 15:49:21.060 +03:30 [INF] Executing endpoint 'HTTP: GET /Contributors/{ContributorId:int}'
+2025-04-24 15:49:21.091 +03:30 [INF] Handling GetContributorQuery
+2025-04-24 15:49:21.092 +03:30 [INF] Property ContributorId : 1
+2025-04-24 15:49:21.150 +03:30 [INF] Executed DbCommand (0ms) [Parameters=[@__contributorId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."Name", "c"."Status", "c"."PhoneNumber_CountryCode", "c"."PhoneNumber_Extension", "c"."PhoneNumber_Number"
+FROM "Contributors" AS "c"
+WHERE "c"."Id" = @__contributorId_0
+LIMIT 1
+2025-04-24 15:49:21.155 +03:30 [INF] Handled GetContributorQuery with Ardalis.Result.Result`1[FirstApp.UseCases.Contributors.ContributorDTO] in 62 ms
+2025-04-24 15:49:21.159 +03:30 [INF] Executed endpoint 'HTTP: GET /Contributors/{ContributorId:int}'
+2025-04-24 15:49:21.161 +03:30 [INF] Request finished HTTP/1.1 GET https://localhost:57679/Contributors/1 - 200 null application/json; charset=utf-8 103.9364ms
